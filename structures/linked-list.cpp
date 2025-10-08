@@ -26,7 +26,7 @@ Node* push(Node* head, int x) {
     return head;
 }
 
-// Inserting to the linked list
+// Pushing to the linked list at 0th index
 Node* insert(Node* head, int x) {
 	Node* newNode = new Node();
 	newNode->value = x;
@@ -65,6 +65,17 @@ Node* put(Node* head, int x, int index = 0) {
     return head;
 }
 
+// Popping from the linked list
+Node* pop(Node* head, int index) {
+	Node* currentNode = head;
+	int counter = 0;
+	while (counter < (index - 1) && currentNode) {
+		currentNode = currentNode->next;
+	}
+	delete currentNode->next;
+	currentNode->next = NULL;
+	return head;
+}
 
 // Display the linked list
 void display(Node* head) {
@@ -81,6 +92,8 @@ int main() {
 	Node* head = nullptr;
 
 	head = insert(head, 10);
+	head = insert(head, 20);
+	head = pop(head, 0);
 
 	display(head);
 }
