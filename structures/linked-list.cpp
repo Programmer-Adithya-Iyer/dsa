@@ -101,6 +101,22 @@ Node* pop(Node* head, int index) {
     return head;
 }
 
+// Reverse a linked list
+Node* reverse(Node* head) {
+    Node* prevNode = nullptr;
+    Node* currentNode = head;
+    Node* temp = nullptr;
+
+    while (currentNode) {
+        temp = currentNode->next;
+        currentNode->next = prevNode;
+        prevNode = currentNode;
+        currentNode = temp;
+    }
+
+    return prevNode;
+}
+
 // Display the linked list
 void display(Node* head) {
     std::cout << "<Linked List> [ ";
@@ -115,9 +131,13 @@ void display(Node* head) {
 int main() {
 	Node* head = nullptr;
 
+	head = insert(head, 1);
+	head = insert(head, 2);
+	head = insert(head, 5);
 	head = insert(head, 10);
-	head = insert(head, 20);
-	head = pop(head, 0);
+	display(head);
+
+	head = reverse(head);
 
 	display(head);
 }
