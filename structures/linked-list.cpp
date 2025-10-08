@@ -39,6 +39,7 @@ Node* insert(Node* head, int x) {
 	return newNode;
 }
 
+// Pushing at an arbitrary index
 Node* put(Node* head, int x, int index = 0) {
     if (index == 0) return insert(head, x);
 
@@ -77,9 +78,9 @@ void display(Node* head) {
 }
 
 int main() {
-	Node* head = new Node();
-	head->value = 10;
-	head->next = NULL;
+	Node* head = nullptr;
+
+	head = insert(head, 10);
 
 	display(head);
 }
