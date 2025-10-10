@@ -128,6 +128,21 @@ void display(Node* head) {
     std::cout << "]" << std::endl;
 }
 
+// For printing single nodes - used by r_display function
+void r_node_display (Node* currentNode) {
+	std::cout << currentNode->value << " ";
+	if ( currentNode->next != nullptr ) {
+		r_node_display(currentNode->next);
+	}
+}
+
+// For printing a linked list recursively.
+void r_display(Node* head) {
+	std::cout << "<Linked List> [ ";
+	r_node_display(head);
+	std::cout << "]" << std::endl;
+}
+
 int main() {
 	Node* head = nullptr;
 
@@ -139,5 +154,5 @@ int main() {
 
 	head = reverse(head);
 
-	display(head);
+	r_display(head);
 }
