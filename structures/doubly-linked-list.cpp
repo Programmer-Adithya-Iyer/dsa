@@ -8,6 +8,20 @@ public:
 	Node* next;
 };
 
+// Inserting to Doubly Linked List
+Node* insert(Node* head, int x) {
+	Node* newNode = new Node();
+	newNode->value = x;
+	newNode->prev = nullptr;
+	newNode->next = head;
+
+	if (head != nullptr) {
+		head->prev = newNode;
+	}
+
+	return newNode;
+}
+
 // Pushing to Doubly Linked List
 Node* push (Node* head, int x) {
 	Node* newNode = new Node();
